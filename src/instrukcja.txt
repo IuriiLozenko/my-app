@@ -1,0 +1,31 @@
+Instrukcja jak sprawdzić/zastosować Redux w projekcie
+1/ Sprawdzenie czy aplikacja ma zainstalowane biblioteki redux, react-redux i @reduxjs-toolkit (w package.json, ew package=lock.jason)
+2/ Sprawdzenie struktur
+    2a - Użycie Providera i store w pliku index.tsx
+    2b - Sprawdzenie czy istnieją hooki useAppselector i useAppDispatch
+    2c - Sprawdzamy czy istnieje struktura tworząca Store
+3/ Sprawdzenie Slice'a
+    3a - interfejsy danych i interfejs samego stora
+    3b - Stworzenie initialState
+    3c - Stworzenie Slice'a
+        3c1 - Nadanie mu nazwy - name 
+        3c2 - Przekazanie initialState
+        3c3 - Stworzenie reducerów
+        3c4 - Stworzenie extraReducera
+    3d - Wyeksportowanie akcji które stworzyły się na podstawie zdefiniowanych reducerów
+    3c - Stworzenie selektorów dla danych dostępnych w Slice
+    3f - Wyeksportowanie głownego Slice extraReducera
+4/ Rejestracja Slice'a w Storze 
+5/ Stworzenie akcji asynchronicznych
+    5a - Stworzenie asynchronicznego thunka
+        5a1 - Nazwa Thunka/ akcji
+        5a2 - Stworzenie metody pobierającej asynchroniczne dane
+    5b - Zarejectrowanie stanów akcji asynchronicznej w extraReducerze razem z reducerami modufikującymi stan stora
+ 6/ Użycie mechanizmu Stora w komponencie
+    6a - wywołanie akcji 
+        6a1 - Zaimportowanie useAppDispatch i akcji do wywołania 
+        6a2 - Stworenie dispatcha za pomocą useAppDispatch
+        6a3 - Wywołanie akcji za pomocą dispatcha -> dispatch(akcjaDoWywołania())
+    6b - Pobranie danych ze Stora
+        6b1 - Zaimportowanie useAppselector i selektorów dostarczających dane
+        6b2 - Przepisanie do zmiennej wartości zwracanej ze struktury useAppselector(selectorDostarczającyDane)

@@ -11,6 +11,7 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
+    {/* Inicjalizacja Redux za pomocą dostarczenia Stora przy Użyciu Providera */}
     <Provider store={store}>
       <App />
     </Provider>
